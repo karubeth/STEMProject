@@ -1,20 +1,94 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>djangoGirls's blog</title>
-    </head>
-    <body>
-        <header>
-            <h1><a href="/">djangoGirls's Blog</a></h1>
-        </header>
-        {% for post in posts %}
-    <article>
-        <time>published: {{ post.published_date }}</time>
-        <h2><a href="">{{ post.title }}</a></h2>
-        <p>{{ post.text|linebreaksbr }}</p>
-    </article>
-{% endfor %}
+<head>
+    <title>KARUNGI ELIZABETH's blog</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'blog/css/style.css' %}">
+    <!-- Include your CSS file (style.css) for styling -->
+</head>
+<body>
+    <header>
+        <nav>
+            <!-- Navigation menu -->
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/contact">Contact</a></li>
+            </ul>
+        </nav>
+        <h1><a href="/">DE BEAUTY HUB</a></h1>
+    </header>
+    <div class="container">
+        <!-- Sidebar -->
+        <aside>
+            <div class="sidebar-content">
+                <!-- Profile Image -->
+                <img src="{% static 'blog/images/head.jpeg' %}" alt="Makeup Artist Profile Image">
+        
+                <!-- About the Makeup Artist -->
+                <h2>About Me</h2>
+                <p>Hi, I'm ELIZABETH KARUNGI a makeup artist and have 2 years of experience in the industry.</p>
+        
+                <!-- Contact Information -->
+                <h2>Contact Me</h2>
+                <ul>
+                    <li>Email: karungieliza@gmail.com</li>
+                    <li>Phone: 0780954228</li>
+                    <li>Location: Kampala, Uganda.</li>
+                </ul>
+        
+                <!-- Services Offered -->
+                <h2>Services</h2>
+                <ul>
+                    <li>Wedding Makeup</li>
+                    <li>Special Occasion Makeup</li>
+                    <li>Makeup Lessons</li>
+                    <li>Photography/Fashion Makeup</li>
+                    <!-- Add more services as needed -->
+                </ul>
+        
+                <!-- Testimonials -->
+                <h2>Testimonials</h2>
+                <div class="testimonial">
+                    <p>"[Client's Testimonial]"</p>
+                    <p>- [Client's Name]</p>
+                </div>
+                <div class="testimonial">
+                    <p>"[Another Testimonial]"</p>
+                    <p>- [Client's Name]</p>
+                </div>
+        
+                <!-- Social Media Links -->
+                <h2>Connect with Me</h2>
+                <ul class="social-links">
+                    <li><a href="[Instagram Link]" target="_blank">Instagram</a></li>
+                    <li><a href="[Facebook Link]" target="_blank">Facebook</a></li>
+                    <li><a href="[Twitter Link]" target="_blank">Twitter</a></li>
+                    <!-- Add more social media links as needed -->
+                </ul>
+            </div>
+        </aside>
+        
+        <main>
+            <!-- Blog posts -->
+            {% for post in posts %}
+            <article>
+                <time>Published: {{ post.published_date }}</time>
+                <h2><a href="">{{ post.title }}</a></h2>
+                <img src="{{ post.image_url }}" alt="{{ post.title }}">
+                
+                <p>{{ post.text|linebreaksbr }}</p>
+            </article>
+            {% endfor %}
+        </main>
+    </div>
+    <footer>
+        <!-- Footer content -->
+        <p>&copy; 2023 KARUNGI ELIZABETH's blog</p>
+    </footer>
 
-      
-    </body>
+    <script src="{% static 'blog/js/script.js' %}"></script>
+
+    <!-- Include your JavaScript file (script.js) for interactivity -->
+</body>
 </html>
